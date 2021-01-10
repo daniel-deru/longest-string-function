@@ -1,18 +1,10 @@
-let longestConsec = (strarr, k) => {
-    let newStr = '';
-    let longStr = '';
+function domainName(url){
+  let wordsArray = url.match(/[a-z-_0-9]{1,}/g);
 
-    for(let i = 0; i < strarr.length; i++){
 
-        newStr = strarr.slice(i, i+k)
+    if(wordsArray[0] == 'http') wordsArray.shift()
+    if(wordsArray[0] == 'https') wordsArray.shift()
+    if(wordsArray[0] == 'www') wordsArray.shift()
 
-        if (newStr.join('').length > longStr.length) longStr = newStr.join('')
-        
-    }
-    if(k <= 0 || k > strarr.length) return ''
-    else return longStr
+    return wordsArray[0]
 }
-
-
-
-console.log(longestConsec(["wlwsasphmxx","owiaxujylentrklctozmymu","wpgozvxxiu","sjbfhdbfaldhb","jsdhoewnd"], 4))
